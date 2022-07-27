@@ -70,34 +70,32 @@ async function getTodos(sort) {
 
 async function addToCart() {
   document.addEventListener("click", async function (event) {
-    function addProductToCart(course) {
-      console.log(course);
+    function addProductToCart(user) {
+      console.log(user);
       let cart = JSON.parse(localStorage.getItem("users"));
       if (!cart) {
         cart = {
           //корзина является объектом
-          courses: [],
+          users: [],
           totalPrice: 0,
         };
       }
       let newProduct = {
-        item: course,
+        item: user,
         count: 1,
-        // subPrice: course.price,
+        // subPrice: user.price,
       };
-      //   cart.courses.push(newProduct);
+      //   cart.users.push(newProduct);
 
-      let isProductInCart = cart.courses.some(
-        (item) => item?.item?.id == course?.id
+      let isProductInCart = cart.users.some(
+        (item) => item?.item?.id == user?.id
       );
 
       console.log(isProductInCart);
       if (isProductInCart) {
-        cart.courses = cart.courses.filter(
-          (item) => item?.item?.id != course?.id
-        );
+        cart.users = cart.users.filter((item) => item?.item?.id != user?.id);
       } else {
-        cart.courses.push(newProduct); //здесь добавили продукт в корзину
+        cart.users.push(newProduct); //здесь добавили продукт в корзину
       }
       localStorage.setItem("users", JSON.stringify(cart));
       //   function getCart() {
@@ -105,11 +103,11 @@ async function addToCart() {
       //     if (!cart) {
       //       cart = {
       //         //корзина является объектом
-      //         courses: [],
+      //         users: [],
       //         totalPrice: 0,
       //       };
       //     }
-      //     cart.totalPrice = cart.courses.reduce((prev, curr) => {
+      //     cart.totalPrice = cart.users.reduce((prev, curr) => {
       //       return prev + curr.subPrice;
       //     }, 0);
       //     console.log(cart);
