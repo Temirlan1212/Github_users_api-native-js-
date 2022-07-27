@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Github Users</title>
+  </head>
+  <body>
+    <!-- header start  -->
+    <header class="header">
+      <div class="container header-main-box">
+        <div class="header-logo">Github Users</div>
+        <div class="haeder-nav">
+          <button class="haeder-nav-btn">
+            <a href="" class="header-nav-btn-link">Search</a>
+          </button>
+          <button class="haeder-nav-btn">
+            <a href="" class="header-nav-btn-link">Favorities</a>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- header end  -->
+
+    <section class="section-1">
+      <div class="container features">
+        <div class="features-main-box">
+          <div class="features-box-item-1">
+            <h2>Seacrh for Github users</h2>
+            <input type="text" placeholder="enter user name" id="search-inp" />
+          </div>
+          <div class="features-box-item-2">
+            <p>Sort</p>
+            <select name="sort" id="sort">
+              <option value="repositories">repositories</option>
+              <option value="followers" selected>followers</option>
+              <option value="joined">joined</option>
+            </select>
+          </div>
+          <div class="features-box-item-3">
+            <p>Order</p>
+            <select name="order" id="order">
+              <option value="asc" selected>asc</option>
+              <option value="desc">desc</option>
+            </select>
+          </div>
+          <div class="features-box-item-4">
+            <p>Per Page</p>
+            <input type="text" id="per_page-input" value="1" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-2">
+      <div class="container hero">
+        <h2>Results</h2>
+        <div class="hero-cards">
+          <!-- <div class="hero-card">
+            <div class="hero-card-image-box">
+              <img src="./images/Ellipse1.png" alt="" />
+            </div>
+            <div class="hero-card-content-box">
+              <div class="hero-card-content-left-box">
+                <p>Username1</p>
+                <a href="">link to github</a>
+              </div>
+              <div class="hero-card-content-right-box">
+                <div class="cart-icon-box">star</div>
+                <button class="haeder-nav-btn">
+                  <a href="" class="header-nav-btn-link">Show repositories</a>
+                </button>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section-3">
+      <div class="container pagination">
+        <div class="pagination-main-box">
+          <div class="pagination-item-1" id="btn-prev">< prev</div>
+          <div class="pagination-item-2">
+            <input type="text" id="pages" value="1" />
+          </div>
+          <div class="pagination-item-3" id="btn-next">next ></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
