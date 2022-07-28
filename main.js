@@ -40,10 +40,14 @@ order.addEventListener("change", function handleChange(event) {
   addToCart(event.target.value);
   details(event.target.value);
 });
+spanPages.addEventListener("change", function () {
+  getTodos();
+  details();
+});
 
 async function getTodos(order) {
   let data = await fetch(
-    `${API}?q=${inpSearch.value}&per_page=${inp_perPage.value}&page=${currentPage}&sort=${sort.value}&order=${order}`
+    `${API}?q=${inpSearch.value}&per_page=${inp_perPage.value}&page=${spanPages.value}&sort=${sort.value}&order=${order}`
   ).then((res) => res.json());
 
   //   let users = await fetch(`${API}?q=${inpSearch.value}`).then((res) =>
@@ -229,11 +233,11 @@ document.addEventListener("click", function (event) {
 });
 
 btnPrev.addEventListener("click", async function () {
-  if (currentPage === 1) {
-    return;
-  }
+  //   if (currentPage === 1) {
+  //     return;
+  //   }
   currentPage--;
-  spanPages.value = currentPage;
+  +spanPages.value++;
 
   //   inp_perPage.value = currentPage;
 
@@ -242,12 +246,12 @@ btnPrev.addEventListener("click", async function () {
 });
 btnNext.addEventListener("click", async function () {
   console.log(pagesCount);
-  if (currentPage === pagesCount) {
-    return;
-  }
+  //   if (currentPage === pagesCount) {
+  //     return;
+  //   }
 
   currentPage++;
-  spanPages.value = currentPage;
+  +spanPages.value++;
   //   inp_perPage.value = currentPage;
   //   spanPages.innerText = currentPage;
   getTodos();
