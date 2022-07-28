@@ -259,3 +259,9 @@ select {
   display: flex;
 }
 /*! pagination ends  */
+
+/* section-4 start  */
+.section-4 {
+  display: none;
+}
+/* section-4 end  */
