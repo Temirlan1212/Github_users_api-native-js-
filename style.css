@@ -215,6 +215,10 @@ select {
   margin-bottom: 37px;
   border-radius: 5px;
 }
+
+.hero-card-content-right-box-2 {
+  display: none;
+}
 /*! hero end  */
 
 /*! pagination start  */
