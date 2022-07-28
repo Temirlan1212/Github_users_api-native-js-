@@ -8,6 +8,8 @@ let section2 = document.querySelector(".section-2");
 let section3 = document.querySelector(".section-3");
 let section4 = document.querySelector(".section-4");
 
+let reposList = document.querySelector(".hero-cards-repos");
+
 // paginate
 let btnPrev = document.getElementById("btn-prev");
 let btnNext = document.getElementById("btn-next");
@@ -19,7 +21,7 @@ let order = document.querySelector("#order");
 let currentPage = 1;
 let pagesCount = 0;
 
-inpSearch.addEventListener("input", function () {
+inpSearch.addEventListener("change", function () {
   getTodos();
 
   addToCart();
@@ -159,10 +161,12 @@ async function details() {
   let data = await fetch(
     `${API}?q=${inpSearch.value}&per_page=${inp_perPage.value}&page=${currentPage}&sort=${sort.value}&order=${order}`
   ).then((res) => res.json());
+
   document.addEventListener("click", async function (event) {
     if (event.target.className === "header-nav-btn-link") {
       let id =
         event.target.parentElement.parentElement.parentElement.parentElement.id;
+      list2.innerHTML = "";
       data?.items?.forEach((item) => {
         if (item?.id == id) {
           console.log(item);
@@ -183,15 +187,30 @@ async function details() {
                 <a href="">link to github</a>
               </div>
               <div class="hero-card-content-right-box">
-                <div class="cart-icon-box btn-addCart">
-                   add
-                </div>
-                <button class="haeder-nav-btn">
-                  <a href="#" class="header-nav-btn-link">Show repositories</a>
+                <button class="haeder-nav-btn-back haeder-nav-btn">
+                    back
                 </button>   
               </div>
             </div>
           </div>`;
+          async function reposFunc() {
+            let repos = await fetch(`${item.repos_url}`).then((res) =>
+              res.json()
+            );
+            reposList.innerHTML = "";
+            console.log(repos);
+            repos.forEach((item) => {
+              let newDiv = document.createElement("div");
+
+              newDiv.innerHTML = `<div class="hero-cards-repos-item">
+              <p>${item.name}</p>
+              <button><a href="${item.html_url}"  target="_blank" >Go to Github</a></button>
+            </div>`;
+
+              reposList.appendChild(newDiv);
+            });
+          }
+          reposFunc();
 
           list2.appendChild(newDiv);
         }
@@ -199,6 +218,15 @@ async function details() {
     }
   });
 }
+
+document.addEventListener("click", function (event) {
+  if (event.target.className == "haeder-nav-btn-back haeder-nav-btn") {
+    section1.style.display = "block";
+    section2.style.display = "block";
+    section3.style.display = "block";
+    section4.style.display = "none";
+  }
+});
 
 btnPrev.addEventListener("click", async function () {
   if (currentPage === 1) {
@@ -224,4 +252,3 @@ btnNext.addEventListener("click", async function () {
   //   spanPages.innerText = currentPage;
   getTodos();
 });
-getTodos();
