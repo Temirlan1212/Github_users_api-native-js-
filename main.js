@@ -12,6 +12,8 @@ let not_found_page = document.querySelector(".section-5");
 let not_found_page_back = document.querySelector(".bl_page404__link");
 let no_user = document.querySelector(".no_user");
 
+let default_state = document.querySelector(".default_state");
+
 let reposList = document.querySelector(".hero-cards-repos");
 
 // paginate
@@ -36,6 +38,8 @@ const fetchData = async () => {
     `${API}?q=${inpSearch.value}&per_page=${inp_perPage.value}&page=${spanPages.value}&sort=${sort.value}&order=${order.value}`
   ).then((res) => res.json());
   spinner.style.display = "none";
+  section3.style.display = "block";
+  default_state.style.display = "none";
 
   getTodos(data);
   addToCart(data);

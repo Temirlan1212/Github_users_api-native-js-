@@ -159,7 +159,7 @@ select {
 /*! hero start  */
 .section-2 {
   background-color: #e8e8e9;
-  min-height: 50vh;
+  min-height: 57vh;
 }
 .hero h2 {
   font-family: "Nunito", sans-serif;
@@ -184,6 +184,21 @@ select {
 }
 .hero-card-image-box {
   padding: 36px 42px 35px 47px;
+}
+.default_state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40vh;
+}
+.default_state img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+.default_state p {
+  color: #3d3e40;
+  font-size: 30px;
 }
 
 .hero-card-content-box {
@@ -240,6 +255,7 @@ select {
 .section-3 {
   background-color: #e8e8e9;
   padding: 57px 0 57px 0;
+  display: none;
 }
 .pagination {
   display: flex;
