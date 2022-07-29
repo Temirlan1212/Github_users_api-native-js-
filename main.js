@@ -26,6 +26,8 @@ let sort = document.querySelector("#sort");
 let order = document.querySelector("#order");
 let pagesCount = 0;
 
+let bool = false;
+
 [inpSearch, inp_perPage, sort, order, spanPages].forEach((element) => {
   element.addEventListener("change", function () {
     fetchData();
@@ -37,6 +39,7 @@ const fetchData = async () => {
   let data = await fetch(
     `${API}?q=${inpSearch.value}&per_page=${inp_perPage.value}&page=${spanPages.value}&sort=${sort.value}&order=${order.value}`
   ).then((res) => res.json());
+
   spinner.style.display = "none";
   section3.style.display = "block";
   default_state.style.display = "none";
@@ -47,8 +50,6 @@ const fetchData = async () => {
 };
 
 async function getTodos(data) {
-  let loading = false;
-
   if (data.message === "Not Found") {
     not_found_page.style.display = "block";
     not_found_page_back.addEventListener("click", function () {
@@ -58,24 +59,18 @@ async function getTodos(data) {
     return (no_user.style.display = "flex"), (list.style.display = "none");
   }
 
-  if (!loading) {
-    spinner.style.display = "block";
-    loading = true;
-  }
+  no_user.style.display = "none";
+  list.style.display = "block";
+  spinner.style.display = "none";
 
-  if (loading) {
-    no_user.style.display = "none";
-    list.style.display = "block";
-    spinner.style.display = "none";
+  list.innerHTML = "";
+  let cart = JSON.parse(localStorage.getItem("users"));
 
-    list.innerHTML = "";
-    let cart = JSON.parse(localStorage.getItem("users"));
+  data?.items?.forEach((item) => {
+    let newDiv = document.createElement("div");
+    newDiv.id = item.id;
 
-    data?.items?.forEach((item) => {
-      let newDiv = document.createElement("div");
-      newDiv.id = item.id;
-
-      newDiv.innerHTML = `<div class="hero-card" id=${item.id}>
+    newDiv.innerHTML = `<div class="hero-card" id=${item.id}>
           <div class="hero-card-image-box">
             <img src="${item.avatar_url}" alt="" />
           </div>
@@ -106,9 +101,8 @@ async function getTodos(data) {
           </div>
         </div>`;
 
-      list.appendChild(newDiv);
-    });
-  }
+    list.appendChild(newDiv);
+  });
 }
 
 async function addToCart(data) {
@@ -131,9 +125,11 @@ async function addToCart(data) {
       if (isProductInCart) {
         cart.users = cart.users.filter((item) => item?.item?.id != user?.id);
         alert("removed from favorities");
+        getQuantity();
       } else {
         cart.users.push(newProduct);
         alert("added to favorities");
+        getQuantity();
       }
 
       localStorage.setItem("users", JSON.stringify(cart));
@@ -148,7 +144,11 @@ async function addToCart(data) {
       data?.items?.forEach((elem) => {
         if (elem.id == id) {
           console.log(elem);
-          addProductToCart(elem);
+
+          Promise.all([addProductToCart(elem)]).then((values) => {
+            getQuantity();
+            getTodos(data);
+          });
         }
       });
     }
@@ -265,3 +265,31 @@ burger.addEventListener("click", function () {
   }
 });
 //! burger menu ends
+
+let header_btn = document.querySelector(".header-nav-btn-active");
+
+function getQuantity() {
+  let cart = JSON.parse(localStorage.getItem("users"));
+  if (!cart) {
+    cart = {
+      users: [],
+    };
+  }
+  console.log(cart);
+
+  header_btn.innerHTML = "";
+
+  let quantity = cart?.users?.length;
+  console.log(quantity);
+
+  let newDiv = document.createElement("div");
+  newDiv.innerHTML = `<a
+    href="./templates/Cart/cart.html"
+    class="header-nav-btn-link"
+    >Favorities - ${quantity}</a
+  >`;
+
+  header_btn.appendChild(newDiv);
+}
+
+getQuantity();
