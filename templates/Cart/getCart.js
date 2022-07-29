@@ -31,7 +31,6 @@ function getCart() {
   list.innerHTML = "";
 
   cart.users.forEach((item) => {
-    console.log(item.item);
     let newDiv = document.createElement("div");
     // newDiv.id = item.id;
     newDiv.innerHTML = `<div class="hero-card" id=${item.item.id}>
@@ -46,7 +45,7 @@ function getCart() {
       </div>
       <div class="hero-card-content-right-box" >
         <div class="cart-icon-box btn-addCart">
-        <img src="https://img.icons8.com/material-rounded/24/3d3e40/filled-trash.png" style="cursor: pointer;" />
+        <img src="https://img.icons8.com/material-rounded/24/3d3e40/filled-trash.png" style="cursor: pointer;" id="${item.item.id}" onclick="deleteFromCart(this.id)"/>
         </div>
         <button class="haeder-nav-btn">
           <a href="" class="header-nav-btn-link">Show repositories</a>
@@ -61,29 +60,8 @@ function getCart() {
   });
 }
 
-document.addEventListener("click", function (e) {
-  if (e.target.parentElement.className === "cart-icon-box btn-addCart") {
-    let id =
-      e.target.parentElement.parentElement.parentElement.parentElement.id;
-
-    let cart = JSON.parse(localStorage.getItem("users"));
-    if (!cart) {
-      cart = {
-        //корзина является объектом
-        users: [],
-        totalPrice: 0,
-      };
-    }
-
-    cart.users.forEach((item) => {
-      if (item.item.id == id) {
-        deleteFromCart(id);
-      }
-    });
-  }
-});
-
 function deleteFromCart(id) {
+  console.log(id);
   let cart = JSON.parse(localStorage.getItem("users"));
   console.log(cart);
   cart.users = cart.users.filter((item) => item.item.id != id);
