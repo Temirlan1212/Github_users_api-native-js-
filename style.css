@@ -37,9 +37,10 @@ select {
   height: 80px;
   display: flex;
   align-items: center;
-  background-color: #e8e8e9;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
-  margin-bottom: 5px;
+  background-color: white;
+  /* box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1); */
+  box-shadow: rgb(0 0 0 / 9%) 4px 4px 15px;
+  margin-bottom: 20px;
 }
 
 .header-main-box {
@@ -59,15 +60,20 @@ select {
 .haeder-nav-btn {
   width: 216px;
   height: 40px;
-  background-color: #3d3e40;
+  /* background-color: #3d3e40; */
+  background-image: linear-gradient(
+    273.38deg,
+    rgb(237, 198, 138) 7.24%,
+    rgb(225, 167, 130) 56.44%,
+    rgb(215, 132, 120) 92.81%
+  );
   color: white;
   border-radius: 5px;
 }
 .haeder-nav-btn:hover {
-  border: 2.5px solid #3d3e40;
+  border: 1.5px solid #3d3e40;
   color: #3d3e40;
   font-weight: 700;
-  background-color: transparent;
 }
 .haeder-nav-btn:first-child {
   margin-right: 29px;
@@ -88,7 +94,7 @@ select {
 
 /*! features start  */
 .section-1 {
-  background-color: #e8e8e9;
+  background-color: white;
   padding: 56px 0 53px 0;
 }
 .features-main-box {
@@ -100,6 +106,12 @@ select {
 .features-main-box div {
   margin-top: 20px;
   margin-right: 10px;
+}
+.features-main-box div input,
+.features-main-box div select {
+  margin-top: 20px;
+  margin-right: 10px;
+  box-shadow: rgb(0 0 0 / 8%) 4px 4px 15px;
 }
 .features-box-item-1 {
   max-width: 631px;
@@ -158,7 +170,7 @@ select {
 
 /*! hero start  */
 .section-2 {
-  background-color: #e8e8e9;
+  background-color: white;
   min-height: 57vh;
 }
 .hero h2 {
@@ -174,6 +186,7 @@ select {
   background-color: white;
   display: flex;
   margin-top: 32px;
+  box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px;
 }
 
 .hero-card-image-box img {
@@ -235,6 +248,7 @@ select {
   height: 40px;
   width: 40px;
   background-color: #e8e8e9;
+  /* background-color: rgb(188, 255, 207); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -253,7 +267,7 @@ select {
 
 /*! pagination start  */
 .section-3 {
-  background-color: #e8e8e9;
+  background-color: white;
   padding: 57px 0 57px 0;
   display: none;
 }
@@ -294,7 +308,7 @@ select {
 /*! section-4 start  */
 .section-4 {
   display: none;
-  background-color: #e8e8e9;
+  background-color: white;
 }
 .hero-secondBlock,
 .hero-firstBlock {
@@ -315,14 +329,25 @@ select {
   justify-content: space-between;
   padding: 0px 38px 0px 47px;
   margin-top: 20px;
+  box-shadow: rgb(0 0 0 / 8%) 4px 4px 15px;
 }
 
 .hero-cards-repos-item button {
   width: 216px;
   height: 40px;
-  background-color: #3d3e40;
+  background-image: linear-gradient(
+    273.38deg,
+    rgb(237, 198, 138) 7.24%,
+    rgb(225, 167, 130) 56.44%,
+    rgb(215, 132, 120) 92.81%
+  );
   color: white;
   border-radius: 5px;
+}
+.hero-cards-repos-item button:hover {
+  color: rgb(61, 62, 64) !important;
+  background-color: transparent !important;
+  box-shadow: rgb(0 0 0 / 8%) 4px 4px 15px;
 }
 
 .hero-cards-repos-item p {
@@ -624,6 +649,15 @@ select {
   height: 50vh;
   display: none;
 }
+
+.no_repos {
+  background-color: #e8e8e9;
+  width: 100vw;
+  height: 30vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 /*? no user end  */
 
 @media screen and (max-width: 800px) {
@@ -757,4 +791,8 @@ select {
   .hero-card-content-left-box p {
     font-size: 26px;
   }
+}
+
+select select {
+  width: 100px !important;
 }

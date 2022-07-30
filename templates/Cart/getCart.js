@@ -44,7 +44,7 @@ function getCart() {
       </div>
       <div class="hero-card-content-right-box" >
         <div class="cart-icon-box btn-addCart">
-        <img src="https://img.icons8.com/material-rounded/24/3d3e40/filled-trash.png" style="cursor: pointer;" id="${item.item.id}" onclick="deleteFromCart(this.id)"/>
+        <img src="https://img.icons8.com/material-rounded/24/ffffff/filled-trash.png" style="cursor: pointer;" id="${item.item.id}" onclick="deleteFromCart(this.id)"/>
         </div>
         <button class="haeder-nav-btn">
           <a href="#" class="header-nav-btn-link" id="${item.item.repos_url}" onclick="renderRepo(this.id)">Show repositories</a>

@@ -35,6 +35,7 @@ let bool = false;
 });
 
 const fetchData = async () => {
+  console.log(spanPages.value);
   spinner.style.display = "flex";
   let data = await fetch(
     `${API}?q=${inpSearch.value}&per_page=${inp_perPage.value}&page=${spanPages.value}&sort=${sort.value}&order=${order.value}`
@@ -50,12 +51,12 @@ const fetchData = async () => {
 };
 
 async function getTodos(data) {
-  if (data.message === "Not Found") {
+  if (data?.message === "Not Found") {
     not_found_page.style.display = "block";
     not_found_page_back.addEventListener("click", function () {
       window.location.reload();
     });
-  } else if (data?.items.length === 0) {
+  } else if (data?.items?.length === 0) {
     return (no_user.style.display = "flex"), (list.style.display = "none");
   }
 
@@ -124,11 +125,9 @@ async function addToCart(data) {
 
       if (isProductInCart) {
         cart.users = cart.users.filter((item) => item?.item?.id != user?.id);
-        alert("removed from favorities");
         getQuantity();
       } else {
         cart.users.push(newProduct);
-        alert("added to favorities");
         getQuantity();
       }
 
@@ -203,19 +202,16 @@ async function reposFunc(url) {
   spinner.style.display = "flex";
   await fetch(`${url}`).then((res) =>
     res.json().then((repos) => {
-      if (repos.length) {
-        reposList.innerHTML = "";
-        let newDiv = document.createElement("div");
+      if (repos.length == 0) {
+        document.querySelector(".no_repos").style.display = "flex";
+        document.querySelector(".hero-secondBlock").style.paddingTop = "0px";
 
-        newDiv.innerHTML = `<div class="hero-cards-repos-item">
-        loading...
-        </div>`;
-
-        reposList.appendChild(newDiv);
+        spinner.style.display = "none";
       }
 
       reposList.innerHTML = "";
       console.log(repos);
+
       repos.forEach((item) => {
         let newDiv = document.createElement("div");
 
@@ -243,12 +239,12 @@ document.addEventListener("click", function (event) {
 btnPrev.addEventListener("click", function () {
   spanPages.value > 1 ? +spanPages.value-- : "";
 
-  getTodos();
+  fetchData();
 });
 btnNext.addEventListener("click", async function () {
   +spanPages.value++;
 
-  getTodos();
+  fetchData();
 });
 
 //! burger menu start
