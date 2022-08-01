@@ -199,6 +199,7 @@ select {
   display: flex;
   justify-content: space-between;
   padding: 37px 38px 31px 37px;
+  flex-wrap: wrap;
 }
 
 .hero-card-content-left-box p {
@@ -400,7 +401,7 @@ select {
     margin-bottom: 0px;
   }
   .hero-card {
-    height: 221px;
+    height: auto;
   }
   .hero-card-content-left-box p {
     font-family: "Inter", sans-serif;
@@ -414,5 +415,26 @@ select {
   }
   .haeder-nav-btn {
     display: none;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .hero-card-content-right-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 30px;
+  }
+  .hero-card-content-right-box div {
+    margin-bottom: 0;
+  }
+  .header-nav-btn-link-adaptive {
+    display: block;
+    margin-top: 5px;
+  }
+  .hero-card-content-box {
+    justify-content: center;
   }
 }

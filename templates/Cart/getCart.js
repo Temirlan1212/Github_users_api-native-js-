@@ -6,7 +6,6 @@ let section2 = document.querySelector(".section-2");
 let section3 = document.querySelector(".section-3");
 let reposList = document.querySelector(".hero-cards-repos");
 let spinner = document.querySelector(".spinner");
-
 let bool = false;
 
 burger.addEventListener("click", function () {

@@ -41,20 +41,33 @@ select {
   /* box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1); */
   box-shadow: rgb(0 0 0 / 9%) 4px 4px 15px;
   margin-bottom: 20px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  /* margin-bottom: 50px; */
 }
 
 .header-main-box {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .haeder-nav {
   display: flex;
+  align-items: center;
 }
 
 .header-logo {
   font-family: "Nunito", sans-serif;
   font-size: 29px;
   font-weight: 900;
+  border-radius: 10px;
+  background-color: rgb(176 244 249 / 19%);
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .haeder-nav-btn {
@@ -102,6 +115,7 @@ select {
   align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 70px;
 }
 .features-main-box div {
   margin-top: 20px;
@@ -187,6 +201,32 @@ select {
   display: flex;
   margin-top: 32px;
   box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px;
+  display: flex;
+  align-items: center;
+}
+.hero-card-1 {
+  width: 100%;
+  height: 400px;
+  /* border: 1px solid; */
+  /* background-color: rgb(189 255 215 / 36%); */
+  display: flex;
+  margin-top: 32px;
+  box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.hero-card-2 {
+  border-radius: 10px;
+  width: 100%;
+  height: 182px;
+  /* border: 1px solid; */
+  background-color: rgb(176 244 249 / 19%);
+  display: flex;
+  margin-top: 32px;
+  box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px;
 }
 
 .hero-card-image-box img {
@@ -247,8 +287,10 @@ select {
 .hero-card-content-right-box div {
   height: 40px;
   width: 40px;
-  background-color: #e8e8e9;
+  background-color: rgba(237, 198, 138, 0.3);
   /* background-color: rgb(188, 255, 207); */
+  /* border: 1px solid rgb(237, 198, 138); */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,14 +332,41 @@ select {
   display: flex;
   align-items: center;
   cursor: pointer;
+  background-image: linear-gradient(
+    273.38deg,
+    rgb(237, 198, 138) 7.24%,
+    rgb(225, 167, 130) 56.44%,
+    rgb(215, 132, 120) 92.81%
+  );
+  border-radius: 5px;
+  color: wheat;
+  height: 30px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
+.pagination-item-1:hover,
+.pagination-item-3:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .pagination-item-2 input {
   font-family: "Nunito", sans-serif;
   font-size: 18px;
-  width: 103px;
-  height: 44px;
-  padding: 10px 0 9px 18px;
+  width: 60px;
+  height: 40px;
+  box-shadow: rgb(0 0 0 / 19%) 4px 4px 25px;
+  background-image: linear-gradient(
+    273.38deg,
+    rgb(237, 198, 138) 7.24%,
+    rgb(225, 167, 130) 56.44%,
+    rgb(215, 132, 120) 92.81%
+  );
+  border-radius: 5px;
+  padding: 10px 0px 10px 25px;
+  color: white;
+  font-weight: 700;
 }
 
 .pagination-main-box {
@@ -311,12 +380,19 @@ select {
   background-color: white;
 }
 .hero-secondBlock,
-.hero-firstBlock {
+.hero-firstBlock,
+.hero-secondBlock-followers {
   padding-top: 100px;
 }
 .hero-secondBlock {
   padding-bottom: 100px;
 }
+
+.hero-secondBlock-followers {
+  padding-bottom: 100px;
+  display: none;
+}
+
 .hero-cards-repos-item {
   max-width: 1262px;
   width: 100%;
@@ -361,6 +437,28 @@ select {
   color: white;
   font-size: 14px;
   font-weight: 500;
+}
+.main-hero-secondBlock-h2 div {
+  display: flex;
+}
+.main-hero-secondBlock-h2 h2 {
+  margin-top: 30px;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: rgb(0 0 0 / 8%) 4px 4px 15px;
+  cursor: pointer;
+  background-color: rgb(176 244 249 / 19%);
+}
+.main-hero-secondBlock-h2 h2:hover {
+  background-color: white;
+  border: 1px solid #3d3e40;
 }
 /*! section-4 end  */
 
@@ -447,7 +545,14 @@ select {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #e8e8e9;
+  background-color: rgba(229, 244, 245, 0);
+  /* background-color: rgb(241, 241, 241); */
+  background-image: linear-gradient(
+    273.38deg,
+    rgb(237, 198, 138) 7.24%,
+    rgb(225, 167, 130) 56.44%,
+    rgb(215, 132, 120) 92.81%
+  );
   position: fixed;
   display: flex;
   justify-content: center;
@@ -651,7 +756,7 @@ select {
 }
 
 .no_repos {
-  background-color: #e8e8e9;
+  background-color: white;
   width: 100vw;
   height: 30vh;
   display: none;
@@ -741,7 +846,9 @@ select {
   }
 }
 @media screen and (max-width: 700px) {
-  .hero-card {
+  .hero-card,
+  .hero-card-1,
+  .hero-card-2 {
     height: auto;
     display: block;
   }
@@ -765,6 +872,9 @@ select {
   }
   .hero-cards-repos-item p {
     margin-right: 10px;
+  }
+  .pagination {
+    justify-content: center;
   }
 }
 @media screen and (max-width: 520px) {
@@ -791,8 +901,7 @@ select {
   .hero-card-content-left-box p {
     font-size: 26px;
   }
-}
-
-select select {
-  width: 100px !important;
+  .header-logo {
+    width: 197px;
+  }
 }
