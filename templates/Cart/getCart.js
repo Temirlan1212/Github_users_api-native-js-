@@ -28,33 +28,61 @@ function getCart() {
 
   list.innerHTML = "";
 
-  cart.users.forEach((item) => {
-    let newDiv = document.createElement("div");
-    // newDiv.id = item.id;
-    newDiv.innerHTML = `<div class="hero-card" id=${item.item.id}>
-    <div class="hero-card-image-box">
-      <img src="${item.item.avatar_url}" alt="" />
-    </div>
-    <div class="hero-card-content-box">
-      <div class="hero-card-content-left-box">
+  Promise.all([
+    cart.users.forEach((item) => {
+      let newDiv = document.createElement("div");
+      // newDiv.id = item.id;
+      newDiv.innerHTML = `<div class="hero-card" id=${item.item.id}>
+      <div class="hero-card-image-box">
         <img src="${item.item.avatar_url}" alt="" />
-        <p>${item.item.login}</p>
-        <a href="${item.item.html_url}" target="_blank">link to github</a>
       </div>
-      <div class="hero-card-content-right-box" >
-        <div class="cart-icon-box btn-addCart">
-        <img src="https://img.icons8.com/material-rounded/24/ffffff/filled-trash.png" style="cursor: pointer;" id="${item.item.id}" onclick="deleteFromCart(this.id)"/>
+      <div class="hero-card-content-box">
+        <div class="hero-card-content-left-box">
+          <img src="${item.item.avatar_url}" alt="" />
+          <p>${item.item.login}</p>
+          <a href="${item.item.html_url}" target="_blank">link to github</a>
         </div>
-        <button class="haeder-nav-btn">
-          <a href="#" class="header-nav-btn-link" id="${item.item.repos_url}" onclick="renderRepo(this.id)">Show repositories</a>
-        </button>   
-        <a href="#" class="header-nav-btn-link-adaptive"><img src="https://img.icons8.com/ios/30/000000/repository.png" id="${item.item.repos_url}" onclick="renderRepo(this.id)"/></a>
-
+        <div class="hero-card-content-right-box" >
+          <div class="cart-icon-box btn-addCart">
+          <img src="https://img.icons8.com/material-rounded/24/ffffff/filled-trash.png" style="cursor: pointer;" class="cart-delete-icon" id="${item.item.id}" />
+          </div>
+          <button class="haeder-nav-btn">
+            <a href="#" class="header-nav-btn-link" id="${item.item.repos_url}">Show repositories</a>
+          </button>   
+          <a href="#" class="header-nav-btn-link-adaptive"><img src="https://img.icons8.com/ios/30/000000/repository.png" class="responsive-repos-icon" id="${item.item.repos_url}" /></a>
+  
+        </div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
 
-    list.appendChild(newDiv);
+      list.appendChild(newDiv);
+    }),
+  ]).then(() => {
+    let btn = document.querySelectorAll(".cart-delete-icon");
+    btn.forEach((elem) => {
+      elem.addEventListener("click", function (e) {
+        console.log(e.target.id);
+        deleteFromCart(e.target.id);
+      });
+    });
+
+    let btn2 = document.querySelectorAll(".header-nav-btn-link");
+    btn2.forEach((elem) => {
+      console.log(elem);
+      elem.addEventListener("click", function (e) {
+        console.log(e.target.id);
+        renderRepo(e.target.id);
+      });
+    });
+
+    let btn3 = document.querySelectorAll(".responsive-repos-icon");
+    btn3.forEach((elem) => {
+      console.log(elem);
+      elem.addEventListener("click", function (e) {
+        console.log(e.target.id);
+        renderRepo(e.target.id);
+      });
+    });
   });
 }
 

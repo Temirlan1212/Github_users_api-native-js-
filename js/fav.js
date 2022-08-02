@@ -16,10 +16,20 @@ export function addProductToCart(user) {
 
   if (isProductInCart) {
     cart.users = cart.users.filter((item) => item?.item?.id != user?.id);
-    alert("removed from fav");
+    document.querySelector(".noticification").style.right = "20px";
+    document.querySelector(".notic_removed").style.display = "block";
+    document.querySelector(".notic_added").style.display = "none";
+    setTimeout(() => {
+      document.querySelector(".noticification").style.right = "-20000px";
+    }, 1000);
   } else {
     cart.users.push(newProduct);
-    alert("added to fav");
+    document.querySelector(".noticification").style.right = "20px";
+    document.querySelector(".notic_added").style.display = "block";
+    document.querySelector(".notic_removed").style.display = "none";
+    setTimeout(() => {
+      document.querySelector(".noticification").style.right = "-20000px";
+    }, 500);
   }
 
   localStorage.setItem("users", JSON.stringify(cart));

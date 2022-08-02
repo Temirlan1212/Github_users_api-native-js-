@@ -56,6 +56,9 @@ select {
   font-size: 29px;
   font-weight: 900;
 }
+.header-logo a {
+  color: rgba(0, 0, 0, 6);
+}
 
 .haeder-nav-btn {
   width: 216px;
@@ -269,7 +272,7 @@ select {
 /*! section-3 start  */
 .section-3 {
   display: none;
-  background-color: #e8e8e9;
+  background-color: #ffffff;
 }
 .hero-secondBlock,
 .hero-firstBlock {
@@ -291,6 +294,7 @@ select {
   justify-content: space-between;
   padding: 0px 38px 0px 47px;
   margin-top: 20px;
+  box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px;
 }
 
 .hero-cards-repos-item button {

@@ -14,11 +14,12 @@
     <title>Github Users</title>
   </head>
   <body>
-
     <!-- header start  -->
     <header class="header">
       <div class="container header-main-box">
-        <div class="header-logo">Github Users</div>
+        <div class="header-logo">
+          <a href="../../index.html">Github Users</a>
+        </div>
         <div class="burger-menu">
           <img
             src="https://img.icons8.com/ios-glyphs/30/000000/menu-rounded.png"
@@ -26,23 +27,21 @@
           <div class="burger-list">
             <div>Search</div>
             <div class="burger-list-a">
-              <a
-              href="./templates/Cart/cart.html"
-              class="header-nav-btn-link"
-              >Favorities</a
-            > 
-             
+              <a href="./templates/Cart/cart.html" class="header-nav-btn-link"
+                >Favorities</a
+              >
             </div>
-            
           </div>
         </div>
         <div class="haeder-nav">
           <button class="haeder-nav-btn">
             <a href="" class="header-nav-btn-link">Search</a>
           </button>
-          <button class="haeder-nav-btn header-nav-btn-active">
-           
-          </button>
+          <button class="haeder-nav-btn header-nav-btn-active"></button>
+        </div>
+        <div class="noticification">
+          <div class="notic_added">added to Favorities</div>
+          <div class="notic_removed">removed from Favorities</div>
         </div>
       </div>
     </header>
@@ -66,7 +65,7 @@
           <div class="features-box-item-3">
             <p>Order</p>
             <select name="order" id="order">
-              <option value="asc" >asc</option>
+              <option value="asc">asc</option>
               <option value="desc" selected>desc</option>
             </select>
           </div>
@@ -81,19 +80,22 @@
     <section class="section-2">
       <div class="container hero">
         <h2>Results</h2>
-        <div class="hero-cards">
-        </div>
+        <div class="hero-cards"></div>
         <main class="no_user">
-            <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-user-interface-kiranshastry-solid-kiranshastry-1.png"/>
-            <h3>No user found</h3>
-          </div>
+          <img
+            src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-user-interface-kiranshastry-solid-kiranshastry-1.png"
+          />
+          <h3>No user found</h3>
         </main>
 
         <main class="default_state container">
-          <img src="https://icon-library.com/images/magnifying-glass-icon/magnifying-glass-icon-18.jpg" alt="">
+          <img
+            src="https://icon-library.com/images/magnifying-glass-icon/magnifying-glass-icon-18.jpg"
+            alt=""
+          />
 
-           <p>search to get results...</p> 
-      </main>
+          <p>search to get results...</p>
+        </main>
       </div>
     </section>
 
@@ -118,13 +120,14 @@
           <div class="hero-cards-2"></div>
         </div>
         <div class="hero-secondBlock">
-          <div class="main-hero-secondBlock-h2"><h2 class="hero-secondBlock-h2">repositories</h2></div>
-          
+          <div class="main-hero-secondBlock-h2">
+            <h2 class="hero-secondBlock-h2">repositories</h2>
+          </div>
+
           <div class="hero-cards-repos"></div>
           <div class="hero-cards-repos-followers"></div>
+          <div class="hero-cards-repos-following"></div>
         </div>
-
-       
       </div>
     </section>
     <!-- details end  -->
@@ -143,16 +146,12 @@
             src="https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/cloud_warmcasino.png?raw=true"
             alt="cloud_warmcasino.png"
           />
-          <div class="bl_page404__el1"></div>
-          <div class="bl_page404__el2"></div>
-          <div class="bl_page404__el3"></div>
+
           <a class="bl_page404__link" href="#">go home</a>
         </div>
       </main>
     </section>
     <!-- Not Found end  -->
-
- 
 
     <div class="spinner">
       <div class="loader"></div>
@@ -162,6 +161,6 @@
       <div class="no_repos-item">no repos</div>
     </div>
 
-    <script type="module" src="./js/main.js"  ></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

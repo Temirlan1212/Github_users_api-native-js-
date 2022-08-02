@@ -51,6 +51,7 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .haeder-nav {
   display: flex;
@@ -68,6 +69,9 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.header-logo a {
+  color: rgba(0, 0, 0, 6);
 }
 
 .haeder-nav-btn {
@@ -110,6 +114,7 @@ select {
   background-color: white;
   padding: 56px 0 53px 0;
 }
+
 .features-main-box {
   display: flex;
   align-items: flex-end;
@@ -223,7 +228,7 @@ select {
   width: 100%;
   height: 182px;
   /* border: 1px solid; */
-  background-color: rgb(176 244 249 / 19%);
+  /* background-color: rgb(176 244 249 / 19%); */
   display: flex;
   margin-top: 32px;
   box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px;
@@ -521,21 +526,16 @@ select {
   display: none;
 }
 .haeder-nav-btn-1 {
+  font-weight: 900;
   cursor: pointer;
   font-size: 14px;
   color: #3d3e40;
   background-color: #ffffff;
-  width: 80px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-decoration: underline;
 }
 .haeder-nav-btn-1:hover {
-  cursor: pointer;
-  font-size: 14px;
-  color: #ffff;
-  background-color: #3d3e40;
+  text-decoration: darkblue;
+  color: rgb(225, 167, 130);
 }
 
 /*! spinner start  */
@@ -645,10 +645,16 @@ select {
   margin: 10px auto 10px;
   max-width: 400px;
   min-height: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.bl_page404__img {
-  width: 100%;
+.bl_page404__wrapper img {
+  max-height: 180px;
+  width: 200px;
+  margin-bottom: 25px;
 }
+
 .bl_page404__link {
   display: block;
   margin: 0 auto;
@@ -669,78 +675,6 @@ select {
 .bl_page404__link:hover,
 .bl_page404__link:focus {
   background-color: #ff7400;
-}
-.bl_page404__el1 {
-  position: absolute;
-  top: 108px;
-  left: 102px;
-  opacity: 1;
-  animation: el1Move 800ms linear infinite;
-  width: 84px;
-  height: 106px;
-  background: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-1.png?raw=true")
-    50% 50% no-repeat;
-  z-index: 2;
-}
-.bl_page404__el2 {
-  position: absolute;
-  top: 92px;
-  left: 136px;
-  opacity: 1;
-  animation: el2Move 800ms linear infinite;
-  width: 184px;
-  height: 106px;
-  background: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-2.png?raw=true")
-    50% 50% no-repeat;
-  z-index: 2;
-}
-.bl_page404__el3 {
-  position: absolute;
-  top: 108px;
-  left: 180px;
-  opacity: 1;
-  animation: el3Move 800ms linear infinite;
-  width: 284px;
-  height: 106px;
-  background: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-3.png?raw=true")
-    50% 50% no-repeat;
-  z-index: 2;
-}
-@keyframes el1Move {
-  0% {
-    top: 108px;
-    left: 102px;
-    opacity: 1;
-  }
-  100% {
-    top: -10px;
-    left: 22px;
-    opacity: 0;
-  }
-}
-@keyframes el2Move {
-  0% {
-    top: 92px;
-    left: 136px;
-    opacity: 1;
-  }
-  100% {
-    top: -10px;
-    left: 108px;
-    opacity: 0;
-  }
-}
-@keyframes el3Move {
-  0% {
-    top: 108px;
-    left: 180px;
-    opacity: 1;
-  }
-  100% {
-    top: 28px;
-    left: 276px;
-    opacity: 0;
-  }
 }
 
 /*! section-5 end  */
@@ -764,6 +698,37 @@ select {
   align-items: center;
 }
 /*? no user end  */
+
+/*? noticifation start  */
+.noticification {
+  position: absolute;
+  top: 70px;
+  /* right: 20px; */
+  right: -4000px;
+  width: 200px;
+  height: 60px;
+  /* background-color: rgba(0, 0, 0, 0.85); */
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 20%) 4px 4px 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  transform: scale(1);
+}
+.noticification div {
+  color: rgb(54, 54, 54);
+  font-weight: 900;
+}
+
+.notic_added {
+  display: none;
+}
+.notic_removed {
+  display: none;
+}
+/*? noticification ends  */
 
 @media screen and (max-width: 800px) {
   .haeder-nav {
@@ -872,6 +837,7 @@ select {
   }
   .hero-cards-repos-item p {
     margin-right: 10px;
+    font-size: 16px;
   }
   .pagination {
     justify-content: center;
@@ -889,6 +855,11 @@ select {
   }
   .section-5 {
     padding: 137px 20px 0px 20px;
+  }
+  .main-hero-secondBlock-h2 h2 {
+    margin-top: 0px;
+    font-size: 18px;
+    width: 119px;
   }
 }
 @media screen and (max-width: 400px) {
